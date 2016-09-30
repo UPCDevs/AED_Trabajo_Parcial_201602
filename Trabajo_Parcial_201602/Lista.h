@@ -60,7 +60,7 @@ public:
 	bool Insertar_al_Final(T Elemento) {
 		if (Inicio == nullptr)
 		{
-			return Insertar_Al_Inicio(Elemento);
+			Insertar_Al_Inicio(Elemento);
 		}
 		Nodo<T>*Auxiliar = Inicio;
 		while (Auxiliar->Next != nullptr) {
@@ -73,5 +73,26 @@ public:
 		}
 		NumeroElementos++;
 		return true;
+	}
+	void Eliminar_en_Posición(int Posición_Donde_Eliminar)
+	{
+		int Posición = 1;
+		int Posición2 = 1;
+		Nodo<T>* Auxiliar;
+		Nodo<T>* Auxiliar2;
+		Auxiliar = Inicio;
+		Auxiliar2 = Inicio;
+		while (Auxiliar != NULL&&Posición<Posición_Donde_Eliminar)
+		{
+			Posición++;
+			Auxiliar = Auxiliar->Next;
+		}
+		while (Auxiliar2 != NULL&&Posición2<Posición_Donde_Eliminar+1)
+		{
+			Posición2++;
+			Auxiliar2 = Auxiliar2->Next;
+		}
+		Auxiliar->Next = Auxiliar2;
+		NumeroElementos--;
 	}
 };
