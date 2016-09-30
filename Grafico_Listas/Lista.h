@@ -102,7 +102,9 @@ bool Lista::eliminar(int indice){
 		while (Auxiliar2 != NULL&&Posicion2<indice + 1)
 		{
 			Posicion2++;
-			Auxiliar2 = Auxiliar2->getSiguiente();
+
+			Auxiliar2->setSiguiente(Auxiliar2->getSiguiente());
+
 		}
 		Auxiliar->setSiguiente(Auxiliar2);
 
