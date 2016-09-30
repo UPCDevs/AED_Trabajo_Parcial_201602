@@ -12,7 +12,11 @@ private:
 public:
 	Nodo* get(int indice);
 	void agregar(Nodo* nodo);
+	bool agregarInicio(Nodo* nodo);
 	bool agregar(Nodo* nodo, int indice);
+
+	bool eliminar(int indice);
+	
 	Lista();
 	virtual ~Lista();
 	Nodo* getPrimer()  { return _primer; }
@@ -26,6 +30,8 @@ Lista::Lista() : _primer(NULL), _ultimo(NULL)
 
 }
 
+
+// Agregar al final 
 void Lista::agregar(Nodo* nodo)
 {
 	if (_primer == NULL) //Si la lista está vacía
@@ -39,6 +45,8 @@ void Lista::agregar(Nodo* nodo)
 		_ultimo = nodo;
 	}
 }
+
+// Obtener elemento en posicion
 
 Nodo* Lista::get(int indice)
 {
@@ -61,7 +69,9 @@ Nodo* Lista::get(int indice)
 }
 
 
-// Agregar el posicion
+// Agregar al final
+
+// Agregar a posicion
 bool Lista::agregar(Nodo* nodo, int indice)
 {
 	bool exito = true;
@@ -74,6 +84,33 @@ bool Lista::agregar(Nodo* nodo, int indice)
 	referencia->setSiguiente(nodo);
 	return exito;
 }
+
+
+bool Lista::eliminar(int indice){
+
+		int Posicion = 1;
+		int Posicion2 = 1;
+		Nodo* Auxiliar;
+		Nodo* Auxiliar2;
+		Auxiliar = _primer;
+		Auxiliar2 = _primer;
+		while (Auxiliar != NULL&&Posicion<indice)
+		{
+			Posicion++;
+			Auxiliar = Auxiliar->getSiguiente();
+		}
+		while (Auxiliar2 != NULL&&Posicion2<indice + 1)
+		{
+			Posicion2++;
+			Auxiliar2 = Auxiliar2->getSiguiente();
+		}
+		Auxiliar->setSiguiente(Auxiliar2);
+
+		return true;
+
+
+}
+
 
 Lista::~Lista()
 {
