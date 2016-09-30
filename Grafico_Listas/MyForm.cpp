@@ -6,5 +6,5 @@ using namespace System::Windows::Forms;
 void main(array<String^>^ arg) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew Trabajo_Parcial_201602::MyForm());
+	Application::Run(gcnew Grafico_Listas::MyForm());
 }
