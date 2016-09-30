@@ -386,7 +386,7 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 			 {
 				 objLista->eliminar(listBox1->SelectedIndex);
 				 //listBox1->SelectedIndex = -1;
-				 //ActualizarLista();
+				 ActualizarLista();
 			 }
 
 			
