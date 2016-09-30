@@ -1,18 +1,11 @@
 #pragma once
-class Nodo
+template <class T>
+struct Nodo
 {
-public:
-	Nodo();
-	~Nodo();
-
-private:
-
+	T Dato;
+	Nodo* Next;
+//	Nodo* Before;
+	Nodo(T dato = 0, Nodo* siguiente = nullptr):Dato(dato),Next(siguiente)
+	{
+	}
 };
-
-Nodo::Nodo()
-{
-}
-
-Nodo::~Nodo()
-{
-}
