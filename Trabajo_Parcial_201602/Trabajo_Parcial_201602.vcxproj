@@ -83,6 +83,7 @@
   <ItemGroup>
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaCircular.h" />
+    <ClInclude Include="ListaDoblementeEnlazada.h" />
     <ClInclude Include="ListaSimplementeEnlazada.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>

@@ -1,21 +1,17 @@
 #pragma once
 #include "Lista.h"
-class ListaCircular :public Lista
+class ListaDoblementeEnlazada:public Lista
 {
 public:
-
-public:
-	ListaCircular()
+	ListaDoblementeEnlazada()
 	{
 	}
-	~ListaCircular()
+	~ListaDoblementeEnlazada()
 	{
 	}
 	virtual bool Insertar_Al_Inicio(char* Elemento) override
 	{
 		Nodo* Auxiliar = new Nodo(Elemento);
-		Nodo* Final;
-		Final = Inicio;
 		if (Auxiliar == nullptr)
 		{
 			return false;
@@ -23,19 +19,12 @@ public:
 		Auxiliar->Next = Inicio;
 		Inicio = Auxiliar;
 		NumeroElementos++;
-		while (Final != NULL)
-		{
-			Final = Final->Next;
-		}
-		Final->Next = Inicio->Before;
 		return true;
 	}
 	virtual void Insertar_en_Posición(char* Elemento, int Posición_Donde_Agregar) override
 	{
 		int Posición = 1;
 		Nodo* Auxiliar;
-		Nodo* Final;
-		Final = Inicio;
 		Auxiliar = Inicio;
 		if (Posición_Donde_Agregar == 0)
 		{
@@ -51,12 +40,8 @@ public:
 			Nodo* Auxiliar_con_Elemento = new Nodo(Elemento);
 			Auxiliar_con_Elemento->Next = Auxiliar->Next;
 			Auxiliar->Next = Auxiliar_con_Elemento;
+
 		}
-		while (Final != NULL)
-		{
-			Final = Final->Next;
-		}
-		Final->Next = Inicio->Before;
 	}
 	virtual bool Insertar_al_Final(char* Elemento) override
 	{
@@ -65,8 +50,6 @@ public:
 			Insertar_Al_Inicio(Elemento);
 		}
 		Nodo*Auxiliar = Inicio;
-		Nodo* Final;
-		Final = Inicio;
 		while (Auxiliar->Next != nullptr) {
 			Auxiliar = Auxiliar->Next;
 		}
@@ -76,11 +59,6 @@ public:
 			return false;
 		}
 		NumeroElementos++;
-		while (Final != NULL)
-		{
-			Final = Final->Next;
-		}
-		Final->Next = Inicio->Before;
 		return true;
 	}
 	virtual void Eliminar_en_Posición(int Posición_Donde_Eliminar) override
@@ -89,8 +67,6 @@ public:
 		int Posición2 = 1;
 		Nodo* Auxiliar;
 		Nodo* Auxiliar2;
-		Nodo* Final;
-		Final = Inicio;
 		Auxiliar = Inicio;
 		Auxiliar2 = Inicio;
 		while (Auxiliar != NULL&&Posición<Posición_Donde_Eliminar)
@@ -104,11 +80,17 @@ public:
 			Auxiliar2 = Auxiliar2->Next;
 		}
 		Auxiliar->Next = Auxiliar2;
-		while (Final != NULL)
-		{
-			Final = Final->Next;
-		}
-		Final->Next = Inicio->Before;
 		NumeroElementos--;
 	}
+	void Agregar_Doble_Enlace()
+	{
+		Nodo* Auxiliar;
+		Auxiliar = Inicio;
+		while (Auxiliar->Next!=nullptr)
+		{
+			Auxiliar->Before = Auxiliar;
+			Auxiliar = Auxiliar->Next;
+		}
+	}
 };
+
