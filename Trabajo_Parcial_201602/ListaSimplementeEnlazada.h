@@ -1,7 +1,6 @@
-#pragma once+
+#pragma once
 #include "Lista.h"
-template<class T>
-class ListaSimplementeEnlazada:public Lista<T>
+class ListaSimplementeEnlazada:public Lista
 {
 public:
 	ListaSimplementeEnlazada()
@@ -10,9 +9,9 @@ public:
 	~ListaSimplementeEnlazada()
 	{
 	}
-	virtual bool Insertar_Al_Inicio(T Elemento) override
+	virtual bool Insertar_Al_Inicio(char* Elemento) override
 	{
-		Nodo<T>* Auxiliar = new Nodo<T>(Elemento);
+		Nodo* Auxiliar = new Nodo(Elemento);
 		if (Auxiliar == nullptr)
 		{
 			return false;
@@ -22,10 +21,10 @@ public:
 		NumeroElementos++;
 		return true;
 	}
-	virtual void Insertar_en_Posición(T Elemento, int Posición_Donde_Agregar) override
+	virtual void Insertar_en_Posición(char* Elemento, int Posición_Donde_Agregar) override
 	{
 		int Posición = 1;
-		Nodo<T>* Auxiliar;
+		Nodo* Auxiliar;
 		Auxiliar = Inicio;
 		if (Posición_Donde_Agregar == 0)
 		{
@@ -38,23 +37,23 @@ public:
 				Posición++;
 				Auxiliar = Auxiliar->Next;
 			}
-			Nodo<T>* Auxiliar_con_Elemento(Elemento);
+			Nodo* Auxiliar_con_Elemento=new Nodo(Elemento);
 			Auxiliar_con_Elemento->Next = Auxiliar->Next;
 			Auxiliar->Next = Auxiliar_con_Elemento;
 
 		}
 	}
-	virtual bool Insertar_al_Final(T Elemento) override
+	virtual bool Insertar_al_Final(char* Elemento) override
 	{
 		if (Inicio == nullptr)
 		{
 			Insertar_Al_Inicio(Elemento);
 		}
-		Nodo<T>*Auxiliar = Inicio;
+		Nodo*Auxiliar = Inicio;
 		while (Auxiliar->Next != nullptr) {
 			Auxiliar = Auxiliar->Next;
 		}
-		Auxiliar->Next = new Nodo<T>(Elemento);
+		Auxiliar->Next = new Nodo(Elemento);
 		if (Auxiliar->Next == nullptr)
 		{
 			return false;
@@ -66,8 +65,8 @@ public:
 	{
 		int Posición = 1;
 		int Posición2 = 1;
-		Nodo<T>* Auxiliar;
-		Nodo<T>* Auxiliar2;
+		Nodo* Auxiliar;
+		Nodo* Auxiliar2;
 		Auxiliar = Inicio;
 		Auxiliar2 = Inicio;
 		while (Auxiliar != NULL&&Posición<Posición_Donde_Eliminar)

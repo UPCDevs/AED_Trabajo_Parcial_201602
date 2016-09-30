@@ -2,10 +2,10 @@
 #include <iostream>
 #include "Nodo.h"
 using namespace std;
-template <class T>
 class Lista
 {
-	Nodo<T>* Inicio;
+public:
+	Nodo* Inicio;
 	int NumeroElementos;
 public:
 	Lista() 
@@ -15,7 +15,7 @@ public:
 	}
 	~Lista()
 	{
-		Nodo<T>* Auxiliar;
+		Nodo* Auxiliar;
 		while (Inicio!=nullptr)
 		{
 			Auxiliar = Inicio;
@@ -23,8 +23,8 @@ public:
 			delete Auxiliar;
 		}
 	}
-	virtual bool Insertar_Al_Inicio(T Elemento) abstract;
-	virtual void Insertar_en_Posición(T Elemento, int Posición_Donde_Agregar) abstract
-	virtual	bool Insertar_al_Final(T Elemento) abstract;
-	void Eliminar_en_Posición(int Posición_Donde_Eliminar) abstract;
+	virtual bool Insertar_Al_Inicio(char* Elemento) abstract;
+	virtual void Insertar_en_Posición(char* Elemento, int Posición_Donde_Agregar) abstract;
+	virtual	bool Insertar_al_Final(char* Elemento) abstract;
+	virtual void Eliminar_en_Posición(int Posición_Donde_Eliminar) abstract;
 };

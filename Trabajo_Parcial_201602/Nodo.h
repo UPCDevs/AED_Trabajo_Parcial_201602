@@ -1,11 +1,13 @@
 #pragma once
-template <class T>
+#include <iostream>
+using namespace std;
+
 struct Nodo
 {
-	T Dato;
+	char* Dato;
 	Nodo* Next;
 	Nodo* Before;
-	Nodo(T dato = 0, Nodo* siguiente = nullptr, Nodo* anterior=nullptr):Dato(dato),Next(siguiente), Before(anterior)
+	Nodo(char* dato = 0, Nodo* siguiente = nullptr, Nodo* anterior = nullptr) :Dato(dato), Next(siguiente), Before(anterior)
 	{
 	}
 };
