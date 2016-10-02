@@ -41,8 +41,32 @@ public:
 		{
 			return false;
 		}
+		if (Inicio = nullptr)
+		{
+			Inicio = Auxiliar;
+		}
 		Auxiliar->Next = Inicio;
 		Inicio = Auxiliar;
+		return true;
+	}
+	bool Insertar_Al_Final(string Elemento)
+	{
+		Nodo* Auxiliar;
+		Nodo* NodoConDato = new Nodo(Elemento);
+		Auxiliar = Inicio;
+		if (Auxiliar == nullptr)
+		{
+			return false;
+		}
+		if (Inicio == nullptr)
+		{
+			Inicio = NodoConDato;
+		}
+		while (Auxiliar->Next!=nullptr)
+		{
+			Auxiliar = Auxiliar->Next;
+		}
+		Auxiliar->Next = NodoConDato;
 		return true;
 	}
 	string GetDato() {
