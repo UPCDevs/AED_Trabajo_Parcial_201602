@@ -69,6 +69,28 @@ public:
 		Auxiliar->Next = NodoConDato;
 		return true;
 	}
+	bool Insertar_En_Posicion(int Posicion, string Elemento)
+	{
+		int Contador = 1;
+		Nodo* Auxiliar = Inicio;
+		Nodo* NodoConDato = new Nodo(Elemento);
+		if (Auxiliar == nullptr)
+		{
+			return false;
+		}
+		if (Posicion == 0)
+		{
+			Insertar_Al_Inicio(Elemento);
+		}
+		while (Auxiliar->Next != nullptr && Contador < Posicion)
+		{
+			Auxiliar = Auxiliar->Next;
+			Contador++;
+		}
+		NodoConDato->Next = Auxiliar->Next;
+		Auxiliar->Next = NodoConDato;
+		
+	}
 	string GetDato() {
 		Nodo* Auxiliar = Inicio;
 		std::ostringstream Dato;
